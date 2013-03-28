@@ -150,6 +150,7 @@ func Compress(buf []byte) ([]byte, []byte, error) {
 	return buf, keys, nil
 }
 
+// Uses buf and key to create the javascript decompressor.
 func Pack(buf []byte, keys []byte) string {
 	return fmt.Sprintf("for(s='%s',i=0;j='%s'[i++];)with(s.split(j))s=join(pop());eval(s)", string(buf), string(keys))
 }
